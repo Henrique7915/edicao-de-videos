@@ -7,7 +7,8 @@ Este repositório é a memória da edição. Leia este arquivo e `projeto_video_
 - Bar pequeno, fechado, noturno, com neon e LED colorido, em Belo Horizonte. Instagram @botecodohudson.
 - Entrega: um Reels vertical 9:16, 40 segundos, cerca de 45 cortes.
 - O usuário **não vai gravar mais nada**. O material é só o que está na pasta de vídeos e, se faltar algum take, clipes gerados por IA no Google Flow (prompts na seção 5 do projeto).
-- Editor final: **DaVinci Resolve** (versão grátis, no Windows). O usuário ajusta e adiciona efeitos lá.
+- Editor: **Kdenlive** (código aberto, Windows). **O Claude faz a edição inteira**, escrevendo o projeto `.kdenlive` (XML do MLT) e renderizando com `melt`. O usuário só assiste aos rascunhos e pede ajustes em texto; abrir o projeto no Kdenlive é opcional.
+- Ferramentas necessárias no computador: Kdenlive (traz o `melt`) e ffmpeg.
 - Idioma: português do Brasil.
 
 ## Arquivos
@@ -27,14 +28,18 @@ Este repositório é a memória da edição. Leia este arquivo e `projeto_video_
 - Uma música por baixo, sem narração. Corte seco, sem transições de efeito.
 - Texto só no título de abertura e no fechamento (logo e chamada).
 - Cor: neon saturado, pele quente, sombras escuras mantidas.
+- Efeitos com moderação: flash branco curto em 2 ou 3 cortes de rajada, zoom "soco" no título, câmera lenta só no rosto da noite, brilho leve no neon. Nada de transição de efeito entre clipes.
 
 ## Fluxo de trabalho
 
 1. **Inventário:** para cada clipe, extrair frames com ffmpeg, olhar as imagens, identificar o take (códigos A1 a E3 do projeto), medir duração e brilho, marcar se está tremido ou desfocado. Salvar em `edicao/inventario.md`.
-2. **Grupos de luz:** agrupar clipes com luz parecida e sugerir ajustes de partida no DaVinci (Lift, Gamma, Gain, balanço de branco) para cada grupo.
+2. **Grupos de luz:** agrupar clipes com luz parecida e definir uma correção por grupo (Lift/Gamma/Gain, balanço de branco, curvas e redução de ruído), aplicada no projeto do Kdenlive.
 3. **Takes que faltam:** listar e preparar os prompts do Flow para eles.
-4. **Montagem:** gerar a timeline como arquivo importável no DaVinci (FCPXML ou EDL) em `edicao/`, com os clipes cortados nos pontos certos. Opcionalmente, um rascunho em MP4 renderizado com ffmpeg para revisão rápida.
-5. **Ajustes:** a cada pedido do usuário, atualizar a timeline e registrar a mudança na seção "Histórico" abaixo.
+4. **Montagem:** escrever `edicao/boteco_do_hudson.kdenlive` com os clipes cortados nos pontos certos, o título, a cor de cada grupo e os efeitos. Perfil 1080x1920, 30 fps.
+5. **Render:** gerar `edicao/rascunho_vNN.mp4` com `melt` (ou ffmpeg) para o usuário assistir. Numerar cada versão e nunca sobrescrever a anterior.
+6. **Ajustes:** a cada pedido do usuário, alterar o projeto, renderizar uma nova versão e registrar a mudança na seção "Histórico" abaixo.
+
+Antes de entregar uma versão, abra alguns frames do render (início, título, meio, fim) e confira se o corte, o texto e a cor estão certos.
 
 Não altere nem apague os vídeos originais. Trabalhe com cópias ou referências.
 
@@ -42,3 +47,4 @@ Não altere nem apague os vídeos originais. Trabalhe com cópias ou referência
 
 - Projeto, lista de takes e prompts do Flow criados.
 - Título "Welcome / To / Boteco do Hudson" adicionado na abertura.
+- Editor trocado de DaVinci Resolve para Kdenlive, com o Claude fazendo a edição inteira.
