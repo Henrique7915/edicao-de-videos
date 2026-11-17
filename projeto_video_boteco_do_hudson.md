@@ -20,8 +20,10 @@ O ritmo copia o vídeo mais parecido com um boteco (Ciri, 34 cortes em 30 s). El
 
 | Tempo | Bloco | Cortes | O que entra |
 |---|---|---|---|
-| 0–3 s | **Rajada de abertura** | 10–12 flashes de 0,2–0,3 s | Neon, mão no pandeiro, rosto cantando, brinde, cavaco, gelo, sorriso, luz. Termina no neon do bar com o título |
-| 3–9 s | **Casa enchendo** | 5–6 takes de ~1 s | Entrada, garçom com balde, copo enchendo, abraço de chegada, selfie na mesa |
+| 0–1,5 s | **Dois primeiros clipes** | 2 takes de ~0,7 s | Os dois clipes mais fortes da noite (rosto cantando, mão no pandeiro) |
+| 1,5–3,5 s | **Título "Welcome / To / Boteco do Hudson"** | 3 palavras em sequência | Ver seção 2.1 |
+| 3,5–5 s | **Rajada de abertura** | 6–8 flashes de 0,2–0,3 s | Neon, brinde, cavaco, gelo, sorriso, luz |
+| 5–9 s | **Casa enchendo** | 4 takes de ~1 s | Entrada, garçom com balde, copo enchendo, abraço de chegada |
 | 9–20 s | **A roda** (respiro) | 6–7 takes de 1,5–2,5 s | Vocalista, cada instrumento, banda vista de dentro da roda, rosto do público cantando |
 | 20–24 s | **Rajada do meio** | 8–10 flashes de 0,3–0,4 s | Mãos nos instrumentos alternando com rostos. Entra no refrão |
 | 24–33 s | **Auge** | 8–9 takes de ~1 s | Mãos para cima, dança, celulares no ar, giro rápido, plateia cheia vista de trás da banda |
@@ -34,8 +36,34 @@ Regras de edição:
 - **Cortar na batida é opcional.** Nas medições, a maioria dos bons vídeos não corta na batida. Acerte só as duas rajadas e o início do refrão.
 - **Uma câmera lenta, só no rosto da noite.**
 - **Sem transição de efeito.** Corte seco, e o giro rápido de câmera como transição natural.
-- **Texto na tela em três pontos apenas:** título em 2–3 s (nome do evento e dia), nada no meio, logo e chamada no fim.
+- **Texto na tela em dois pontos apenas:** o título "Welcome / To / Boteco do Hudson" no início, e logo e chamada no fim. Nada no meio.
 - **Cor:** mantenha o neon saturado e a pele quente. Não clareie as sombras, o escuro faz parte do clima.
+
+### 2.1 Título "Welcome / To / Boteco do Hudson"
+
+Uma palavra por vez, em letra grande, no centro: a palavra anterior some e a próxima aparece no lugar, sem transição.
+
+| Tempo | Na tela | Duração |
+|---|---|---|
+| 1,5 s | **WELCOME** | ~0,5 s |
+| 2,0 s | **TO** | ~0,4 s |
+| 2,4 s | **BOTECO DO HUDSON** (em 2 ou 3 linhas) | ~1,1 s |
+
+- **Troque cada palavra numa batida da música.** É o único lugar do vídeo onde o corte na batida é obrigatório.
+- **Por baixo do texto, o vídeo continua rodando** (o terceiro clipe ou o neon do bar), levemente escurecido para a letra destacar.
+- **Fonte pesada e condensada**, toda em maiúsculas: Anton, Bebas Neue ou Montserrat Black. Branco, ou o amarelo do neon do bar.
+- **"BOTECO DO HUDSON" ocupa quase a largura toda** da tela vertical. "WELCOME" e "TO" podem ficar um pouco menores.
+- **Toque opcional:** cada palavra entra com 110% de tamanho e encolhe para 100% em 3 frames. Dá um "soco" na entrada.
+
+**Como fazer no DaVinci Resolve (página Edit):**
+
+1. Na trilha de música, dê play e aperte **M** em cada batida entre 1,5 s e 3,5 s para marcar.
+2. Em **Effects → Titles**, arraste um **Text+** para a trilha **V2**, acima do vídeo. Escreva `WELCOME`.
+3. No **Inspector**, ajuste fonte, tamanho e cor. Em **Shading**, ligue uma sombra suave para separar do fundo.
+4. Corte o clipe de texto para ir de um marcador ao próximo.
+5. Copie o clipe (**Ctrl+C**), cole logo depois (**Ctrl+V**) e troque o texto para `TO`. Repita para `BOTECO DO HUDSON`.
+6. Para escurecer o fundo: no clipe de vídeo embaixo, abaixe o **Gain** na página **Color**, ou ponha um **Solid Color** preto na V2 com opacidade de 30%, entre o vídeo e o texto.
+7. Para o "soco" opcional: no Inspector, em **Transform → Zoom**, faça um keyframe em 1,1 no primeiro frame da palavra e outro em 1,0 três frames depois.
 
 ## 3. Lista de takes (o que gravar)
 
